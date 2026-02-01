@@ -6,7 +6,7 @@ export const Flower = (props: any) => {
   const flowerRef = useRef<Mesh>(null);
 
   // Animación: Hacemos que la flor gire suavemente
-  useFrame((state, delta) => {
+  useFrame((_, delta) => {
     if (flowerRef.current) {
       flowerRef.current.rotation.y += delta * 0.5;
     }
