@@ -13,7 +13,7 @@ import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename="/website-almendra">
       <Routes>
         {/* Ruta de Inicio (Login) */}
         <Route path="/" element={<LoginPage />} />
