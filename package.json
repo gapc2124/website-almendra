@@ -2,7 +2,7 @@
   "name": "website-almendra",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://TU_USUARIO_GITHUB.github.io/regalo-almendra",
+  "homepage": "https://gapc2124.github.io/website-almendra",
   "type": "module",
   "scripts": {
     "dev": "vite",
