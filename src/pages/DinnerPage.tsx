@@ -1,4 +1,4 @@
-//import React from 'react';
+import React from 'react';
 import { DinnerForm } from '../components/DinnerForm';
 import '../styles/gift-hub.css'; // Reusamos el estilo bonito del Hub
 

@@ -1,8 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+// 👇 CAMBIO 1: Importamos HashRouter en lugar de BrowserRouter
+import { HashRouter, Routes, Route, Navigate } from 'react-router-dom'
 
-// Importamos todas las páginas que hemos creado
 import { LoginPage } from './pages/LoginPage'
 import { SurprisePage } from './pages/SurprisePage'
 import { FinalGiftPage } from './pages/FinalGiftPage'
@@ -13,24 +13,19 @@ import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <BrowserRouter basename="/website-almendra">
+    {/* 👇 CAMBIO 2: Usamos HashRouter y QUITAMOS el basename */}
+    <HashRouter>
       <Routes>
-        {/* Ruta de Inicio (Login) */}
         <Route path="/" element={<LoginPage />} />
-        
-        {/* Ruta del Recorrido (Mañana/Tarde/Noche) */}
         <Route path="/sorpresa" element={<SurprisePage />} />
-        
-        {/* Ruta Final (El Hub/Menú principal) */}
         <Route path="/te-amo-infinito" element={<FinalGiftPage />} />
         
-        {/* Rutas Externas (Se abren en nuevas pestañas) */}
+        {/* Rutas Externas */}
         <Route path="/album" element={<AlbumPage />} />
         <Route path="/dinner" element={<DinnerPage />} />
         
-        {/* Si escriben cualquier otra cosa, los manda al inicio */}
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   </React.StrictMode>,
 )

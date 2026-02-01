@@ -19,20 +19,22 @@ export const FinalGiftPage = () => {
         
         <div className="gift-grid">
           
-          {/* Opción 1: Cena (ABRE NUEVA PESTAÑA) */}
+          {/* Opción 1: Cena */}
           <div 
             className="gift-card" 
-            onClick={() => window.open('/dinner', '_blank')} 
+            // 👇 AGREGA EL #: '#/dinner'
+            onClick={() => window.open('#/dinner', '_blank')} 
           >
             <span className="card-icon">🍽️</span>
             <h3 className="card-title">Cena Especial</h3>
             <p className="card-desc">Un plan delicioso para nosotros.</p>
           </div>
 
-          {/* Opción 2: Album (ABRE NUEVA PESTAÑA) */}
+          {/* Opción 2: Album */}
           <div 
             className="gift-card" 
-            onClick={() => window.open('/album', '_blank')}
+            // 👇 AGREGA EL #: '#/album'
+            onClick={() => window.open('#/album', '_blank')}
           >
             <span className="card-icon">📸</span>
             <h3 className="card-title">Álbum de Fotos</h3>
