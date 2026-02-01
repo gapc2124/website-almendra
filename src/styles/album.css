@@ -1,0 +1,96 @@
+/* =========================================
+   ALBUM VINTAGE STYLES 🎞️
+   ========================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Homemade+Apple&family=Courier+Prime&display=swap');
+
+.album-body {
+  /* CAMBIO: Fondo Amarillo Pastel */
+  background-color: #fffde7; 
+  background-image: url("https://www.transparenttextures.com/patterns/cream-paper.png");
+  min-height: 100vh;
+  padding: 40px 20px;
+  font-family: 'Courier Prime', monospace;
+  overflow-x: hidden;
+}
+
+.album-container {
+  max-width: 1400px; /* Un poco más ancho para tantas fotos */
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.album-title {
+  font-family: 'Great Vibes', cursive; /* Usamos la fuente romántica del proyecto */
+  font-size: 5rem;
+  color: #ff6b6b;
+  text-align: center;
+  margin-bottom: 60px;
+  text-shadow: 2px 2px 0px rgba(0,0,0,0.05);
+  transform: rotate(-2deg);
+}
+
+/* LA GRILLA DE FOTOS */
+.polaroid-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 50px; /* Más espacio entre polaroids */
+  padding-bottom: 100px;
+}
+
+/* ESTILO POLAROID */
+.polaroid {
+  background: white;
+  padding: 15px 15px 60px 15px; /* Espacio abajo para texto */
+  box-shadow: 5px 5px 15px rgba(0,0,0,0.15);
+  transform: rotate(var(--rotation));
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  width: 260px; /* Tamaño estándar */
+  position: relative;
+  cursor: pointer;
+}
+
+.polaroid:hover {
+  transform: scale(1.15) rotate(0deg) !important; /* Efecto pop-up */
+  box-shadow: 15px 20px 40px rgba(0,0,0,0.2);
+  z-index: 100;
+}
+
+.polaroid img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  filter: sepia(20%) contrast(1.05) saturate(1.1); /* Toque vintage sutil */
+  border: 1px solid #eee;
+}
+
+.polaroid-caption {
+  font-family: 'Homemade Apple', cursive;
+  color: #555;
+  font-size: 1.1rem;
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  text-align: center;
+  left: 0;
+  padding: 0 10px;
+}
+
+/* CINTA ADHESIVA (Washi Tape) */
+.tape {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-2deg);
+  width: 90px;
+  height: 35px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-left: 1px dashed rgba(0,0,0,0.1);
+  border-right: 1px dashed rgba(0,0,0,0.1);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  backdrop-filter: blur(2px);
+  z-index: 5;
+}

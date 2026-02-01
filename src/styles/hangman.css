@@ -1,0 +1,132 @@
+/* --- FONDO DE BOSQUE MÍSTICO --- */
+.hangman-container {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  /* Degradado profundo: Verde oscuro a verde bambú con un toque de niebla */
+  background: radial-gradient(circle at 50% 20%, #2e4e2e 0%, #1a2e1a 60%, #0d1a0d 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  z-index: 9999;
+  font-family: 'Lato', sans-serif;
+  overflow: hidden; /* Importante para que las hojas no estiren la pantalla */
+}
+
+/* Efecto de ruido sutil para textura (opcional) */
+.hangman-container::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+  opacity: 0.1;
+  pointer-events: none;
+}
+
+/* --- CAJA DEL JUEGO (Cristal Esmerilado) --- */
+.hangman-box {
+  /* Fondo semi-transparente oscuro para que resalte sobre el bosque */
+  background: rgba(20, 30, 20, 0.65);
+  padding: 2rem;
+  border-radius: 20px;
+  text-align: center;
+  /* Efecto de vidrio borroso */
+  backdrop-filter: blur(12px); 
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  
+  max-width: 600px;
+  width: 90%;
+  position: relative;
+  z-index: 10; /* Para que esté por encima de las hojas */
+}
+
+/* --- ANIMACIÓN DE HOJAS CAYENDO 🍃 --- */
+.leaf {
+  position: absolute;
+  top: -20px;
+  width: 20px;
+  height: 20px;
+  background: #66bb6a; /* Verde hoja claro */
+  border-radius: 0 50% 0 50%; /* Forma de hoja */
+  opacity: 0.6;
+  pointer-events: none;
+  animation: fall linear infinite;
+}
+
+/* Variación de colores para las hojas */
+.leaf:nth-child(2n) { background: #8bc34a; } /* Verde lima */
+.leaf:nth-child(3n) { background: #558b2f; } /* Verde bambú oscuro */
+
+@keyframes fall {
+  0% {
+    transform: translateY(-20px) translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(110vh) translateX(100px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* --- ESTILOS DEL JUEGO (Textos y Botones) --- */
+.title { 
+  margin-bottom: 0.5rem; 
+  color: #a5d6a7; /* Verde pálido brillante */
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+  font-weight: 700;
+}
+
+.subtitle { margin-bottom: 2rem; opacity: 0.8; font-size: 0.9rem; color: #e8f5e9; }
+
+.drawing-area { margin-bottom: 2rem; }
+
+/* Palabra oculta */
+.word-display {
+  font-size: 2rem;
+  letter-spacing: 0.5rem;
+  margin-bottom: 2rem;
+  font-weight: bold;
+  word-wrap: break-word;
+  color: #ffffff;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.space { margin: 0 1rem; }
+
+/* Teclado */
+.keyboard {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+
+.key-btn {
+  background: rgba(255,255,255,0.1);
+  color: white;
+  border: 1px solid rgba(255,255,255,0.2);
+  padding: 10px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.2s;
+  font-family: 'Lato', sans-serif;
+}
+
+.key-btn:hover:not(:disabled) { 
+  background: #66bb6a; 
+  color: white; 
+  box-shadow: 0 0 10px #66bb6a;
+  transform: translateY(-2px);
+}
+
+.key-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+.key-btn.used { background: rgba(0,0,0,0.3); border-color: transparent; }
+
+.status { margin-top: 20px; font-size: 0.8rem; opacity: 0.6; }

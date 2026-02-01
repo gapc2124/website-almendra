@@ -1,0 +1,411 @@
+/* =========================================
+   GIFT HUB STYLES (Página Final)
+   ========================================= */
+
+/* CONTENEDOR PRINCIPAL */
+.gift-hub-container {
+  width: 100vw; 
+  min-height: 100vh;
+  /* Fondo diferente: Opalina suave pero festivo */
+  background: linear-gradient(135deg, #fff0f3 0%, #e6f7ff 100%);
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  justify-content: center;
+  font-family: 'Playfair Display', serif; 
+  padding: 20px;
+  box-sizing: border-box;
+  animation: fadeInHub 1s ease;
+}
+
+@keyframes fadeInHub {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* TÍTULO PRINCIPAL */
+.hub-title {
+  font-family: 'Great Vibes', cursive;
+  font-size: 4rem; 
+  color: #ff6b6b; 
+  margin-bottom: 50px;
+  text-align: center; 
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+  animation: floatTitle 3s ease-in-out infinite alternate;
+}
+
+@keyframes floatTitle {
+  from { transform: translateY(0); }
+  to { transform: translateY(-10px); }
+}
+
+/* GRILLA DE OPCIONES (EL MENÚ) */
+.gift-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columnas */
+  gap: 25px;
+  max-width: 900px; 
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .gift-grid { grid-template-columns: 1fr; } /* 1 columna en celular */
+  .hub-title { font-size: 3rem; }
+}
+
+/* TARJETAS / BOTONES */
+.gift-card {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border: 2px solid white;
+  border-radius: 20px;
+  padding: 30px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+  position: relative; 
+  overflow: hidden;
+}
+
+.gift-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 20px 40px rgba(255, 107, 107, 0.2);
+  border-color: #ffb7b2;
+  background: white;
+}
+
+.gift-card:active {
+  transform: scale(0.98);
+}
+
+.card-icon { 
+  font-size: 3.5rem; 
+  margin-bottom: 15px; 
+  display: block; 
+}
+
+.card-title { 
+  font-size: 1.8rem; 
+  font-weight: 700; 
+  color: #444; 
+  margin-bottom: 8px; 
+  font-family: 'Noto Sans Display', sans-serif;
+}
+
+.card-desc { 
+  font-size: 1rem; 
+  color: #777; 
+  font-family: 'Lato', sans-serif; 
+}
+
+/* CONTENEDOR INTERNO (CUANDO ENTRAS A UNA OPCIÓN) */
+.section-content {
+  width: 100%; 
+  max-width: 1000px; 
+  height: 85vh;
+  background: #ffffff; 
+  border-radius: 25px;
+  padding: 40px; 
+  position: relative;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+  overflow-y: auto;
+  animation: slideUpSection 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+@keyframes slideUpSection { 
+  from { transform: translateY(100px) scale(0.9); opacity: 0; } 
+  to { transform: translateY(0) scale(1); opacity: 1; } 
+}
+
+/* BOTÓN VOLVER */
+.btn-back {
+  align-self: flex-start; /* Pegado a la izquierda */
+  background: #f8f9fa; 
+  border: 1px solid #ddd;
+  padding: 12px 25px;
+  border-radius: 30px; 
+  cursor: pointer; 
+  font-weight: bold;
+  font-family: 'Lato', sans-serif;
+  color: #555;
+  transition: all 0.3s; 
+  display: flex; 
+  align-items: center; 
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.btn-back:hover { 
+  background: #ff6b6b; 
+  color: white; 
+  border-color: #ff6b6b;
+  transform: translateX(-5px); 
+}
+
+/* TÍTULOS INTERNOS */
+.inner-title {
+  font-family: 'Great Vibes', cursive; 
+  font-size: 3.5rem; 
+  color: #ff6b6b; 
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* =========================================
+   UX/UI OVERHAUL - DINNER WIZARD 🪄
+   ========================================= */
+
+/* CONTENEDOR PRINCIPAL DEL WIZARD (TARJETA FLOTANTE) */
+.dinner-wizard-wrapper {
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border-radius: 30px;
+  padding: 40px;
+  box-shadow: 
+    0 20px 50px rgba(255, 107, 107, 0.15),
+    0 10px 15px rgba(0,0,0,0.05);
+  position: relative;
+  overflow: hidden;
+  transition: height 0.3s ease;
+}
+
+/* BARRA DE PROGRESO (SUTIL Y ELEGANTE) */
+.progress-track {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 6px;
+  background: #f0f0f0;
+}
+.progress-indicator {
+  height: 100%;
+  background: linear-gradient(90deg, #ff9a9e 0%, #ff6b6b 100%);
+  transition: width 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  box-shadow: 0 0 10px rgba(255, 107, 107, 0.5);
+}
+
+/* ANIMACIONES DE DIAPOSITIVAS */
+.form-slide {
+  animation: slideInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes slideInUp {
+  from { opacity: 0; transform: translateY(20px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* TÍTULOS DE SECCIÓN */
+.step-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  color: #d32f2f;
+  margin-bottom: 10px;
+  text-align: center;
+}
+.step-subtitle {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.95rem;
+  color: #888;
+  text-align: center;
+  margin-bottom: 30px;
+  font-weight: 400;
+}
+
+/* --- TARJETAS DE SELECCIÓN (GRID MEJORADO) --- */
+.selection-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.option-card {
+  position: relative;
+  background: white;
+  border: 2px solid #f0f0f0;
+  border-radius: 16px;
+  padding: 20px 10px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  user-select: none;
+}
+
+/* HOVER EFFECT */
+.option-card:hover {
+  border-color: #ffcdd2;
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(255, 183, 178, 0.2);
+}
+
+/* SELECTED STATE */
+.option-card.active {
+  background: #fff0f3;
+  border-color: #ff6b6b;
+  color: #d32f2f;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 107, 107, 0.2);
+}
+
+/* CHECKMARK BADGE (Visual Feedback) */
+.check-badge {
+  position: absolute;
+  top: 10px; right: 10px;
+  width: 20px; height: 20px;
+  background: #ff6b6b;
+  border-radius: 50%;
+  color: white;
+  font-size: 12px;
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; transform: scale(0);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.option-card.active .check-badge {
+  opacity: 1; transform: scale(1);
+}
+
+.opt-emoji { font-size: 2rem; margin-bottom: 10px; display: block; }
+.opt-label { font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 0.9rem; line-height: 1.3; }
+
+/* --- INPUTS MODERNOS (MATERIAL STYLE) --- */
+.modern-input-wrapper {
+  position: relative;
+  margin-top: 20px;
+}
+.modern-input {
+  width: 100%;
+  padding: 15px 20px;
+  border: 2px solid #eee;
+  border-radius: 12px;
+  background: #fbfbfb;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+.modern-input:focus {
+  border-color: #ff6b6b;
+  background: white;
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(255, 107, 107, 0.1);
+}
+
+/* --- MODIFICADORES (CHIPS) --- */
+.mods-container {
+  display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;
+  background: #fff8f9; padding: 15px; border-radius: 12px;
+  border: 1px dashed #ffcdd2; margin-bottom: 20px;
+  animation: fadeIn 0.3s ease;
+}
+.mod-chip {
+  padding: 8px 16px;
+  background: white; border: 1px solid #ddd;
+  border-radius: 20px; cursor: pointer;
+  font-size: 0.85rem; font-family: 'Montserrat', sans-serif;
+  transition: all 0.2s; display: flex; align-items: center; gap: 5px;
+}
+.mod-chip.active {
+  background: #ff6b6b; color: white; border-color: #ff6b6b;
+}
+
+/* --- REGLAS (CARD STYLE) --- */
+.rules-card {
+  text-align: center; padding: 20px 0;
+}
+.rules-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 15px;
+  margin: 30px 0;
+}
+.rule-item {
+  background: #fff; padding: 15px; border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+  text-align: left; border-left: 4px solid #ff6b6b;
+}
+.rule-item h4 { margin: 0 0 5px 0; color: #d32f2f; font-family: 'Montserrat', sans-serif; }
+.rule-item p { margin: 0; font-size: 0.85rem; color: #666; font-family: 'Lato', sans-serif; }
+
+/* --- NAVEGACIÓN INFERIOR --- */
+.wizard-footer {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-top: 40px; padding-top: 20px;
+  border-top: 1px solid #f0f0f0;
+}
+
+.btn-nav {
+  padding: 14px 28px; border-radius: 50px; border: none;
+  font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 0.95rem;
+  cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; gap: 8px;
+}
+.btn-prev { background: transparent; color: #999; }
+.btn-prev:hover { background: #f5f5f5; color: #555; }
+.btn-next {
+  background: linear-gradient(135deg, #ff6b6b 0%, #ff8e53 100%);
+  color: white; box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+}
+.btn-next:hover {
+  transform: translateY(-2px); box-shadow: 0 6px 20px rgba(255, 107, 107, 0.6);
+}
+
+/* BOTÓN FINAL */
+.btn-finish {
+  width: 100%; padding: 20px; border-radius: 15px; border: none;
+  background: linear-gradient(135deg, #43a047 0%, #66bb6a 100%);
+  color: white; font-family: 'Montserrat', sans-serif; font-size: 1.2rem; font-weight: 700;
+  cursor: pointer; box-shadow: 0 10px 25px rgba(67, 160, 71, 0.3);
+  transition: transform 0.2s; display: flex; align-items: center; justify-content: center; gap: 10px;
+}
+.btn-finish:hover { transform: scale(1.02); }
+
+
+/* ESTILOS PARA EL MODO CRISTAL (Fondo oscuro) */
+.crystal-mode-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.crystal-overlay-content {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  z-index: 10; /* Por encima del canvas 3D */
+  padding: 40px;
+  pointer-events: none; /* Permitir clicks en el 3D */
+  text-align: center;
+}
+
+/* Hacemos que los textos y botones sean visibles en oscuro y clickeables */
+.crystal-overlay-content .inner-title {
+  color: #aaddff; /* Celeste claro */
+  text-shadow: 0 0 20px rgba(136, 204, 255, 0.8);
+  margin-top: 20px;
+}
+
+.crystal-overlay-content p {
+  color: #e0f7fa;
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: 0 auto;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+}
+
+.crystal-overlay-content .btn-back {
+  pointer-events: auto; /* El botón sí debe funcionar */
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(5px);
+}
+.crystal-overlay-content .btn-back:hover {
+  background: #aaddff;
+  color: #001122;
+}
