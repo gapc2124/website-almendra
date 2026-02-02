@@ -49,12 +49,12 @@ export const MorningSection = () => {
             <p>Que orgulloso estoy de lo que estamos construyendo y que afortunado me siento por tenerte un día más a mi lado.</p>
             <p>Reconozco que aunque hay dificultades nuestro valor para salir de ellas y mejorar día a día como equipo nos hace más unidos y fuertes.</p>
             <p>Después de tanto tiempo escribiendo nuevas páginas en nuestra historia puedo estar seguro que cada año que pasa te amo más.</p>
-            <p>Una cualidad tan esencial de la vida que es la "felicidad" contigo he visto que es algo que se crea y se cultiva paso a paso, y esta puede florecer de una manera hermosa.</p>
+            <p>Una cualidad tan esencial de la vida que es la "felicidad", contigo la aprendí y he visto que es algo que se crea y se cultiva paso a paso, y esta puede florecer de una manera hermosa.</p>
             <p>Mi día más oscuro está lleno de celeste opalina y mi día más luminoso es el que te tiene a ti en él.</p>
             <p>Si fuera a despertar contigo mañana me levantaría con las mejores motivaciones, y si no fuera así trabajaría todo lo necesario para asegurarme de un día hacerlo.</p>
             <p>Tu nombre me trae esperanza, significa mi lugar seguro, se siente como un cielo opalina, y se traduce en amor verdadero. Es la felicidad construida, es mi hogar.</p>
 
-            <p><strong>Te amo infinitamente, Amy.</strong><br/>Gracias por ser mi compañera de aventuras, mi jugadora abejita y el amor de mi vida.</p>
+            <p><strong>Te amo infinitamente, Amy.</strong><br/>Gracias por ser mi compañera de aventuras, mi abejita y el amor de mi vida.</p>
             <p>Con todo mi amor,<br/>Gabo ❤️</p>
           </div>
         </div>
